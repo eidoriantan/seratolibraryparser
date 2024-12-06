@@ -99,9 +99,14 @@ async function parseChunk(
       data.setUTCSeconds(secondsSince1970);
       break;
     default:
-      data = buffer
-        .toString("latin1", index + 8, index + 8 + length)
-        .replace(/\0/g, "");
+      const le = buffer.subarray(index + 8, index + 8 + length);
+      for (let i = 0; i < le.byteLength; i += 2) {
+        const a = le[i];
+        const b = le[i + 1];
+        le[i] = b;
+        le[i + 1] = a;
+      }
+      data = le.toString("utf-16le");
       break;
   }
   return {
