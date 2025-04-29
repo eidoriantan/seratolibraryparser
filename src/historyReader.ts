@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import * as os from "os";
 import * as pathLib from "path";
+import { TextEncoder } from "util";
 
 type ChunkDataType = string | Chunk[] | number | Date;
 
@@ -135,6 +136,68 @@ async function parseChunkArray(
     chunks.push(chunk);
   }
   return chunks;
+}
+
+/**
+ * Encodes a chunk array into a buffer
+ * @param {fs.promises.FileHandle} fd Filehandle to write to
+ * @param {Chunk[]} chunks Array of chunks to be written
+ */
+async function encodeChunkArray(
+  fd: fs.promises.FileHandle,
+  chunks: Chunk[],
+  offset: number = 0
+) {
+  for (let i = 0; i < chunks.length; i++) {
+    const chunk = chunks[i];
+    const tagBuffer = Buffer.alloc(4);
+    const sizeBuffer = Buffer.alloc(4);
+    tagBuffer.write(chunk.tag, 'ascii');
+    sizeBuffer.writeUInt32BE(0, 0);
+    await fd.write(tagBuffer, 0, 4, offset);
+    offset += 4;
+    await fd.write(sizeBuffer, 0, 4, offset);
+    offset += 4;
+
+    const startRefOffset = offset;
+    let dataLength = 0;
+
+    if (chunk.tag === 'oses' || chunk.tag === 'oent' || chunk.tag === 'otrk' || chunk.tag === 'adat') {
+      offset = await encodeChunkArray(fd, chunk.data as Chunk[], offset);
+      dataLength = offset - startRefOffset;
+    } else if (chunk.tag === '\u0000\u0000\u0000\u0001' || chunk.tag  === '\u0000\u0000\u0000\u000f') {
+      const data = Buffer.alloc(4);
+      data.writeUInt32BE(chunk.data as number, 0);
+      await fd.write(data, 0, 4, offset);
+      offset += 4;
+      dataLength = 4;
+    } else if (chunk.tag === '\u0000\u0000\u00005') {
+      const data = Buffer.alloc(4);
+      const date = chunk.data as Date;
+      const secondsSince1970 = Math.floor(date.getTime() / 1000);
+      data.writeUInt32BE(secondsSince1970, 0);
+      await fd.write(data, 0, 4, offset);
+      offset += 4;
+      dataLength = 4;
+    } else {
+      const data = Buffer.from(chunk.data as string, 'utf16le');
+      const beBuffer = Buffer.alloc(data.byteLength);
+      for (let i = 0; i < data.byteLength; i += 2) {
+        const a = data[i];
+        const b = data[i + 1];
+        beBuffer[i] = b;
+        beBuffer[i + 1] = a;
+      }
+      await fd.write(beBuffer, 0, beBuffer.byteLength, offset);
+      offset += beBuffer.byteLength;
+      dataLength = beBuffer.byteLength;
+    }
+
+    sizeBuffer.writeUInt32BE(dataLength, 0);
+    await fd.write(sizeBuffer, 0, 4, startRefOffset - 4);
+  }
+
+  return offset;
 }
 
 /**
@@ -273,6 +336,22 @@ export async function getSeratoSongs(path: string) {
   });
 
   return songs;
+}
+
+export async function getChunks(path: string) {
+  const buffer = await fs.promises.readFile(path);
+  return await parseChunkArray(buffer, 0, buffer.length);
+}
+
+/**
+ * Sets new songs to the serato database v2 file
+ * @param {string} path path to database v2 serato file
+ * @param {Chunk[]} chunks array of songs to be added
+ */
+export async function setSeratoSongs(path: string, chunks: Chunk[]) {
+  const fd = await fs.promises.open(path, 'w+');
+  await encodeChunkArray(fd, chunks);
+  await fd.close();
 }
 
 /**

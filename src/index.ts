@@ -1,8 +1,8 @@
-import { getDefaultSeratoPath, getDomTree, getSeratoHistory, getSeratoSongs, getSessions, getSessionSongs } from "./historyReader";
+import { getChunks, getDefaultSeratoPath, getDomTree, getSeratoHistory, getSeratoSongs, setSeratoSongs, getSessions, getSessionSongs } from "./historyReader";
 
 import { getDefaultITunesLibraryPath, getITunesSongs } from './itunesReader';
 
 /**
  * Forwards export functions
  */
-export { getDefaultSeratoPath, getDomTree, getSeratoHistory, getSeratoSongs, getSessions, getSessionSongs, getITunesSongs, getDefaultITunesLibraryPath };
+export { getChunks, getDefaultSeratoPath, getDomTree, getSeratoHistory, getSeratoSongs, setSeratoSongs, getSessions, getSessionSongs, getITunesSongs, getDefaultITunesLibraryPath };
