@@ -182,11 +182,11 @@ async function encodeChunkArray(
     } else {
       const data = Buffer.from(chunk.data as string, 'utf16le');
       const beBuffer = Buffer.alloc(data.byteLength);
-      for (let i = 0; i < data.byteLength; i += 2) {
-        const a = data[i];
-        const b = data[i + 1];
-        beBuffer[i] = b;
-        beBuffer[i + 1] = a;
+      for (let j = 0; j < data.byteLength; j += 2) {
+        const a = data[j];
+        const b = data[j + 1];
+        beBuffer[j] = b;
+        beBuffer[j + 1] = a;
       }
       await fd.write(beBuffer, 0, beBuffer.byteLength, offset);
       offset += beBuffer.byteLength;
