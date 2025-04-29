@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>seratolibraryparser</title>
-	<meta name="description" content="">
+	<title>@eidoriantan/seratolibraryparser</title>
+	<meta name="description" content="Documentation for @eidoriantan/seratolibraryparser">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">seratolibraryparser</a>
+					<a href="index.html" class="title">@eidoriantan/seratolibraryparser</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1>seratolibraryparser</h1>
+			<h1>@eidoriantan/seratolibraryparser</h1>
 		</div>
 	</div>
 </header>
@@ -90,6 +90,8 @@
 						<section class="tsd-index-section tsd-is-external">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-is-external"><a href="globals.html#encodechunkarray" class="tsd-kind-icon">encode<wbr>Chunk<wbr>Array</a></li>
+								<li class="tsd-kind-function tsd-is-external"><a href="globals.html#getchunks" class="tsd-kind-icon">get<wbr>Chunks</a></li>
 								<li class="tsd-kind-function tsd-is-external"><a href="globals.html#getdefaultituneslibrarypath" class="tsd-kind-icon">get<wbr>DefaultITunes<wbr>Library<wbr>Path</a></li>
 								<li class="tsd-kind-function tsd-is-external"><a href="globals.html#getdefaultseratopath" class="tsd-kind-icon">get<wbr>Default<wbr>Serato<wbr>Path</a></li>
 								<li class="tsd-kind-function tsd-is-external"><a href="globals.html#getdomtree" class="tsd-kind-icon">get<wbr>Dom<wbr>Tree</a></li>
@@ -102,6 +104,7 @@
 								<li class="tsd-kind-function tsd-is-external"><a href="globals.html#getuint32fromstring" class="tsd-kind-icon">getUInt32<wbr>From<wbr>String</a></li>
 								<li class="tsd-kind-function tsd-is-external"><a href="globals.html#parsechunk" class="tsd-kind-icon">parse<wbr>Chunk</a></li>
 								<li class="tsd-kind-function tsd-is-external"><a href="globals.html#parsechunkarray" class="tsd-kind-icon">parse<wbr>Chunk<wbr>Array</a></li>
+								<li class="tsd-kind-function tsd-is-external"><a href="globals.html#setseratosongs" class="tsd-kind-icon">set<wbr>Serato<wbr>Songs</a></li>
 							</ul>
 						</section>
 					</div>
@@ -115,13 +118,76 @@
 					<div class="tsd-signature tsd-kind-icon">Chunk<wbr>Data<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="classes/chunk.html" class="tsd-signature-type">Chunk</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/historyReader.ts#L5">historyReader.ts:5</a></li>
+							<li>Defined in historyReader.ts:6</li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-external">
 				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-external">
+					<a name="encodechunkarray" class="tsd-anchor"></a>
+					<h3>encode<wbr>Chunk<wbr>Array</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">encode<wbr>Chunk<wbr>Array<span class="tsd-signature-symbol">(</span>fd<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FileHandle</span>, chunks<span class="tsd-signature-symbol">: </span><a href="classes/chunk.html" class="tsd-signature-type">Chunk</a><span class="tsd-signature-symbol">[]</span>, offset<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in historyReader.ts:146</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Encodes a chunk array into a buffer</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fd: <span class="tsd-signature-type">FileHandle</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Filehandle to write to</p>
+									</div>
+								</li>
+								<li>
+									<h5>chunks: <a href="classes/chunk.html" class="tsd-signature-type">Chunk</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of chunks to be written</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> offset: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-external">
+					<a name="getchunks" class="tsd-anchor"></a>
+					<h3>get<wbr>Chunks</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Chunks<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/chunk.html" class="tsd-signature-type">Chunk</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in historyReader.ts:341</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>path: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/chunk.html" class="tsd-signature-type">Chunk</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-external">
 					<a name="getdefaultituneslibrarypath" class="tsd-anchor"></a>
 					<h3>get<wbr>DefaultITunes<wbr>Library<wbr>Path</h3>
@@ -132,7 +198,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/itunesReader.ts#L35">itunesReader.ts:35</a></li>
+									<li>Defined in itunesReader.ts:35</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -155,7 +221,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/historyReader.ts#L296">historyReader.ts:296</a></li>
+									<li>Defined in historyReader.ts:380</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -178,7 +244,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/historyReader.ts#L140">historyReader.ts:140</a></li>
+									<li>Defined in historyReader.ts:208</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -210,7 +276,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/itunesReader.ts#L15">itunesReader.ts:15</a></li>
+									<li>Defined in itunesReader.ts:15</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -241,7 +307,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/historyReader.ts#L278">historyReader.ts:278</a></li>
+									<li>Defined in historyReader.ts:362</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -273,7 +339,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/historyReader.ts#L237">historyReader.ts:237</a></li>
+									<li>Defined in historyReader.ts:305</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -304,7 +370,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/historyReader.ts#L188">historyReader.ts:188</a></li>
+									<li>Defined in historyReader.ts:256</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -336,7 +402,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/historyReader.ts#L152">historyReader.ts:152</a></li>
+									<li>Defined in historyReader.ts:220</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -370,7 +436,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/historyReader.ts#L63">historyReader.ts:63</a></li>
+									<li>Defined in historyReader.ts:64</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -401,7 +467,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/historyReader.ts#L50">historyReader.ts:50</a></li>
+									<li>Defined in historyReader.ts:51</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -432,7 +498,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/historyReader.ts#L78">historyReader.ts:78</a></li>
+									<li>Defined in historyReader.ts:79</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -472,7 +538,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TobiasJacob/seratolibraryparser/blob/9d266db/src/historyReader.ts#L120">historyReader.ts:120</a></li>
+									<li>Defined in historyReader.ts:126</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -506,6 +572,43 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-external">
+					<a name="setseratosongs" class="tsd-anchor"></a>
+					<h3>set<wbr>Serato<wbr>Songs</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Serato<wbr>Songs<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, chunks<span class="tsd-signature-symbol">: </span><a href="classes/chunk.html" class="tsd-signature-type">Chunk</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in historyReader.ts:351</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets new songs to the serato database v2 file</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>path to database v2 serato file</p>
+									</div>
+								</li>
+								<li>
+									<h5>chunks: <a href="classes/chunk.html" class="tsd-signature-type">Chunk</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>array of songs to be added</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -532,6 +635,12 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-is-external">
 						<a href="globals.html#chunkdatatype" class="tsd-kind-icon">Chunk<wbr>Data<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-external">
+						<a href="globals.html#encodechunkarray" class="tsd-kind-icon">encode<wbr>Chunk<wbr>Array</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-external">
+						<a href="globals.html#getchunks" class="tsd-kind-icon">get<wbr>Chunks</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-external">
 						<a href="globals.html#getdefaultituneslibrarypath" class="tsd-kind-icon">get<wbr>DefaultITunes<wbr>Library<wbr>Path</a>
@@ -569,6 +678,9 @@
 					<li class=" tsd-kind-function tsd-is-external">
 						<a href="globals.html#parsechunkarray" class="tsd-kind-icon">parse<wbr>Chunk<wbr>Array</a>
 					</li>
+					<li class=" tsd-kind-function tsd-is-external">
+						<a href="globals.html#setseratosongs" class="tsd-kind-icon">set<wbr>Serato<wbr>Songs</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -586,6 +698,5 @@
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
